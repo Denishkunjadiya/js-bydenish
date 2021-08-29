@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>sing up form</title>
+	<script type="text/javascript">
+		  
+		function validateForm() {
+		    //collect form data in JavaScript variables
+		    var pw1 = document.getElementById("pswd1").value;
+		    var pw2 = document.getElementById("pswd2").value;
+		    var name1 = document.getElementById("fname").value;
+		 		    
+		    //check empty first name field
+		    if(name1 == "") {
+		      document.getElementById("blankMsg").innerHTML = "**Fill the first name";
+		      return false;
+		    }
+		    
+		    //character data validation
+		    if(!isNaN(name1)){
+		      document.getElementById("blankMsg").innerHTML = "**Only characters are allowed";
+		      return false;
+		    }
+		  
+		    //check empty password field
+		    if(pw1 == "") {
+		      document.getElementById("message1").innerHTML = "**Fill the password please!";
+		      return false;
+		    }
+		  
+		    //check empty confirm password field
+		    if(pw2 == "") {
+		      document.getElementById("message2").innerHTML = "**Enter the password please!";
+		      return false;
+		    } 
+		   
+		    //minimum password length validation
+		    if(pw1.length < 5) {
+		      document.getElementById("message1").innerHTML = "**Password length must be atleast 5 characters";
+		      return false;
+		    }
+
+		    //maximum length of password validation
+		    if(pw1.length > 15) {
+		      document.getElementById("message1").innerHTML = "**Password length must not exceed 15 characters";
+		      return false;
+		    }
+		  
+		    if(pw1 != pw2) {
+		      document.getElementById("message2").innerHTML = "**Passwords are not same";
+		      return false;
+		    } else {
+		      alert ("Your password created successfully");
+		      document.write("<p style=color:red;font-size:2.0em;font-style:italic;font-family:'Bradley Hand ITC'>Your Registration is confirm</p>");
+		    }
+		 }
+	</script>
+
+	<style type="text/css">
+		body{
+		font-family: 'josefin Sans', Sans-serif;
+		background-image: url(1.jpg);
+		background-size: cover;
+		}
+		.head{
+			color: red;
+			font-size: 1.9em;
+			font-family: "Lucida Calligraphy";
+			font-style: italic;
+		}
+		.div{
+			font-family: "Forte";
+			font-size: 24px;
+			width: 500px;
+			height: 300px;
+			align-items: center;
+			background-color: red;
+			background: transparent;
+			border:0px; 
+			box-shadow: 12px 12px 30px 0px yellow;
+			text-align: center;
+			border-radius: 50px;
+		}
+		form{
+			border-radius: 10px;
+		}
+		input,button{
+			border-radius: 9px;
+			font-family: "Matura MT Script Capitals";			
+			font-size: 24px;
+		}
+		.t{
+			color: green;
+			background: transparent;
+		}
+		.b{
+			width: 100px;
+		} 
+	</style>
+</head>
+<body>
+	<table align="center" class="div">
+		
+		<form onsubmit ="return validateForm()">
+
+
+		<tr>
+			<th class="head">Sign up now</th>
+		</tr>
+
+		<tr><!-- Enter first name -->
+		<td bgcolor="lightgreen"> 
+		<input class="t" type = "text" id = "fname" value = "" placeholder="Enter your full name"> &nbsp;<br>
+		<span id = "blankMsg" style="color:red"> </span></td> 
+		</tr>
+		<br><br>
+
+		<tr>
+		<!-- Create a new password -->
+		<td bgcolor="lightgreen"> 
+		<input class="t" type = "password" id = "pswd1" value = "" placeholder="Create your Password">&nbsp; <br>
+		<span id = "message1" style="color:red"> </span></td> 
+		</tr>
+		<br><br>
+
+		<tr>
+		<!--Enter confirm password -->
+		<td bgcolor="lightgreen"> 
+		<input class="t" type = "password" id = "pswd2" value = "" placeholder="Confirm your Password"> &nbsp;<br>
+		<span id = "message2" style="color:red"> </span></td> 
+		</tr>
+		<br>
+		<br>
+
+		<tr>
+		<!--Enter e-mail -->
+		<td bgcolor="lightgreen">  
+		<input class="t" type = "email" id = "pswd2" value = "" placeholder="Enter yore e-mail"> &nbsp;<br>
+		<span id = "message2" style="color:red"> </span></td> 
+		</tr>
+		<br><br>
+
+		<tr>
+		<td>
+		<!-- Click to verify valid password -->
+		<input type = "submit"class="b" value = "Submit">
+
+		<!-- Click to reset fields -->
+		<button type = "reset" class="b" value = "Reset" >Reset</button>
+		</td>
+		</tr>
+		</form>
+	</table>
+</body>
+</html>
